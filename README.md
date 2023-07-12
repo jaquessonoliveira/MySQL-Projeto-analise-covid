@@ -60,7 +60,7 @@
 ![covid_vacinacao](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/05%20-%20Visualizando%20os%20dados%20covid_vacina%C3%A7%C3%A3o.png?raw=true)
 
 **Obs:**
--  Algumas colunas de ambas as tabelas estão em branco pois no início da pandemia ainda não existiam registros, ou os dados não timham sido publicados na data em questão.
+-  Algumas colunas de ambas as tabelas estão em branco pois no início da pandemia ainda não existiam registros, ou os dados não tinham sido publicados na data em questão.
 
   ---
 
