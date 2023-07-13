@@ -1,14 +1,10 @@
-# **Análise Exploratória de Dados do Covid-19 - MySQL**
+# **Análise de Dados do Covid-19 - MySQL**
 
----
+ Este projeto tem como objetivo realizar uma análise de dados utilizando o Sistema de Gerenciamento de Banco de Dados (SGBD) **MySQL**, com foco na pandemia do Covid-19, utilizando técnicas de estatísticas, agregações, relacionamentos e análise de dados ao longo do tempo. O objetivo principal é explorar dados reais relacionados à pandemia, buscando identificar padrões, tendências e insights relevantes. O **MySQL** será empregado como a ferramenta principal para armazenamento, manipulação e consulta dos dados. A análise abrangerá aspectos epidemiológicos, como casos confirmados, novos casos, percentual e média de mortes por região, bem como outras métricas relevantes. 
+ Os dados utilizados neste projeto estão disponíveis publicamente neste [link](https://ourworldindata.org/covid-deaths).
 
 <center>
-<img src="https://tutorialesenpdf.com/wp-content/uploads/2017/06/mysql_tutorial_pdf.jpg">
-    
----
-
- Projeto de análise de dados utilizando o SGBD **MySQL** para analisar dados reais sobre a pandemia do Covid-19, através de análise de estatísticas, agregações, relacionamentos e análise de dados ao longo do tempo.
- Os dados utilizados neste projeto estão disponíveis publicamente neste [link](https://ourworldindata.org/covid-deaths).
+<img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/difference_between_sql_and_mysql.jpg">
 
 ---
 
@@ -153,3 +149,14 @@ Na query abaixo foi utilizada a função **SUM()** na coluna **new_cases** para 
 ![percentmortes](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/13%20-%20Usando%20a%20fun%C3%A7%C3%A3o%20COALESCE%20para%20tratar%20dados%20nulos.png?raw=true)
 
 ---
+
+### **Número de novos vacinados, e média móvel de novos vacinados ao longo do tempo por localidade:**
+
+Na query abaixo, além da função **AVG()** utilizada na coluna **new_vaccinations** para encontrar a média de novos vacinados, foi utilizado a cláusula **OVER()**, particionado pela localização, e ordenado pela data, para retornar a média móvel, ou seja, ao longo do tempo. 
+Em resumo, a cláusula "OVER" é usada em consultas SQL para realizar cálculos agregados ou operações de janela (window functions). Ela permite realizar cálculos em um conjunto de linhas retornadas por uma consulta. É útil quando é necessário realizar cálculos que envolvam a combinação de várias linhas, como cálculos cumulativos, médias móveis, classificações e particionamento de dados, como foi feito utilizando o **PARTITION BY** para particionar os resultados pela localização, e ordenar pela data, com o **ORDER BY**.
+A query retorna o número de vacinados, e a média móvel de novos vacinados, considerando os dados somente da América do Sul, através da cláusula WHERE. 
+Outras duas cláusulas usadas na query foram o **INNER JOIN**, e **CASE**.
+O INNER JOIN é uma cláusula utilizada em SQL para combinar dados de várias tabelas com base em uma condição de junção específica, retornando apenas as linhas que correspondem nas tabelas envolvidas na junção. Essa cláusula permite que você recupere dados relacionados de tabelas diferentes com base em uma coluna comum entre elas. Nesse caso foram utilizadas as colunas **location** e **date** para relacionar as duas tabelas.
+Já a CASE é uma expressão condicional usada em consultas SQL para realizar avaliações condicionais e retornar valores com base nessas condições. Nessa query a expressão foi utilizada para verificar o resultado de cada linha da coluna **new_vaccinations**, se ela encontrar algum valor nulo (NULL) ou em branco, substitui por 'NA', caso não encontre, retorna o valor encontrado na consulta.
+
+![mediamovel]()
