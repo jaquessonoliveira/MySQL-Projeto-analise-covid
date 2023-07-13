@@ -94,7 +94,7 @@ Comando para bloquear novamente o SAFE UPDATE:
 - Estatísticas descritivas: AVG(), MEDIAN(), STDDEV(), MIN() e MAX();
 - Análise de tendências: YEAR(), MONTH(), DAY().
 
-Na query abaixo calculei a média de mortos de cada país utilizando a função **AVG** na coluna **total_deaths**, e agrupando os dados pela coluna **location**, retornando assim a média de mortos de cada país. Depois fiz o mesmo processo na coluna **new_cases** para retornar a média dos novos casos de cada país. A função **ROUND()** arredonda um valor numérico para um número específico de casas decimais, nesse caso foram arredondados para duas casas.
+Na query abaixo foi calculada a média de mortos de cada país utilizando a função **AVG** na coluna **total_deaths**, e agrupando os dados pela coluna **location**, retornando assim a média de mortos de cada país. O mesmo processo foi feito na coluna **new_cases** para retornar a média dos novos casos de cada país. A função **ROUND()** arredonda um valor numérico para um número específico de casas decimais, nesse caso foram arredondados para duas casas decimais.
 
 ![análise_univariada](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/08%20-%20Fazendo%20uma%20anal%C3%ADse%20univariada.png?raw=true)
 
@@ -109,7 +109,7 @@ Na query abaixo calculei a média de mortos de cada país utilizando a função 
 - Análise de componentes principais (PCA);
 - Análise de associação.
 
-Na query abaixo fiz uma divisão direta entre as colunas **total_deaths** e **total_cases**, multiplicando o resultado por 100 para achar o percentual de mortes em relação ao total de casos, e filtrando somente os dados do Brasil com a cláusula WHERE, e ordenando o resultado pelas colunas **location** e **date**.
+Na query abaixo foi feita uma divisão direta entre as colunas **total_deaths** e **total_cases**, multiplicando o resultado por 100 para achar o percentual de mortes em relação ao total de casos, e filtrando somente os dados do Brasil com a cláusula WHERE, e ordenando o resultado pelas colunas **location** e **date**.
 
 ![análise_multivariada](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/09%20-%20Fazendo%20uma%20anal%C3%ADse%20multivariada.png?raw=true)
 
@@ -117,8 +117,32 @@ Na query abaixo fiz uma divisão direta entre as colunas **total_deaths** e **to
 
 ### **Proporção média entre o total de casos e a população de cada localidade:**
 
-Na query abaixo calculei a média do total de casos dividido pela população, e multipliquei o resultado por 100 para encontrar a proporção média entre o total de casos e a população, agrupando pela localidade, encontrando o percentual médio de de casos de cada país.
+Na query abaixo foi calculado a média do total de casos dividido pela população, e multiplicado o resultado por 100 para encontrar a proporção média entre o total de casos e a população, agrupando pela localidade, encontrando o percentual médio de de casos de cada país.
 
 ![proporção_média](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/10%20-%20Propor%C3%A7%C3%A3o%20m%C3%A9dia%20entre%20o%20total%20de%20casos%20e%20a%20popula%C3%A7%C3%A3o.png?raw=true)
+
+---
+
+### **Países com a maior taxa de infecção em relação a população:**
+
+Na query abaixo foi utilizada a função **MAX** na coluna **total_cases** que retorna o valor máximo do total de casos de infectados, e para achar o percentual máximo do total de casos pelo total da polulação de cada país, foi utilizada a função **MAX** na divisão das colunas **total_cases** e **population**, multiplicando o resultado por 100. Também foi utilizado um filtro com a cláusula **WHERE** e **IS NOT NULL** para eliminar as linhas com valor nulo na coluna **continent**, agrupando o resultado pelas colunas **location** e **population** em ordem decrescente.
+
+![taxainfeccao](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/11%20-%20Maior%20valor%20total%20casos,%20Taxa%20infec%C3%A7%C3%A3o%20x%20Popula%C3%A7%C3%A3o.png?raw=true)
+
+---
+
+### **Países com a maior número de mortes:**
+
+Na query abaixo foi utilizada a função **MAX** na coluna **total_deaths** para retornar o maior número de mortes, utilizando a cláusula WHERE e IS NOT NULL como na query acima, e agrupando pela coluna **location** para retornar o maior número de mortes de cada país. Note que nessa agregação em especifico foi necessário utilizar a cláusula **CAST(nome_coluna AS UNSIGNED)**, isso porque quando a tabela foi criada, todas as colunas foram geradas como tipo **text**, e para realizar uma operação matemática foi necessário a conversão da coluna para um valor inteiro. Por padrão no SGBD MySQL, não é possível converter a coluna para o tipo **INT** utilizando essa cláusula, somente para o tipo UNSIGNED, que é basicamente o tipo **INT** sem sinal.
+
+![maiornummortos](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/12%20-.png?raw=true)
+
+---
+
+### **Qual o percentual de mortes por dia:**
+
+Na query abaixo foi utilizada a função **SUM()** na coluna **new_cases** para somar o número de novos casos de covid a cada dia, e retornar a soma de novos casos. Na coluna **total_deaths** foram feitos dois cálculos, uma soma para retornar o total de mortos, e a soma da coluna **new_deaths** dividida pela soma da coluna **new_cases**, multiplicando o resultado por 100 para encontrar o percentual de mortes por dia. Nessa coluna foi utilizada a cláusula **COALESCE()**, que verifica os valores de uma coluna, e caso ela encontre um valor **NULL**, substitui pelo valor especificado entre parenteses, nesse caso 'NA', uma maneira eficiente de tratar valores nulos.
+
+![percentmortes](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/13%20-%20Usando%20a%20fun%C3%A7%C3%A3o%20COALESCE%20para%20tratar%20dados%20nulos.png?raw=true)
 
 ---
