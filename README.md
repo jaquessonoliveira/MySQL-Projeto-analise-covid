@@ -1,5 +1,12 @@
 # **Análise Exploratória de Dados do Covid-19 - MySQL**
 
+---
+
+<center>
+<img src="https://tutorialesenpdf.com/wp-content/uploads/2017/06/mysql_tutorial_pdf.jpg">
+    
+---
+
  Projeto de análise de dados utilizando o SGBD **MySQL** para analisar dados reais sobre a pandemia do Covid-19, através de análise de estatísticas, agregações, relacionamentos e análise de dados ao longo do tempo.
  Os dados utilizados neste projeto estão disponíveis publicamente neste [link](https://ourworldindata.org/covid-deaths).
 
