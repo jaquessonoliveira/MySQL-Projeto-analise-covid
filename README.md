@@ -1,4 +1,4 @@
-# **Análise de Dados do Covid-19 | MySQL**
+# **Análise de Dados do Covid-19 - MySQL**
 
  Este projeto tem como objetivo realizar uma análise de dados utilizando o Sistema de Gerenciamento de Banco de Dados (SGBD) **MySQL**, com foco na pandemia do Covid-19, utilizando técnicas de estatísticas, agregações, relacionamentos e análise de dados ao longo do tempo. O objetivo principal é explorar dados reais relacionados à pandemia, buscando identificar padrões, tendências e insights relevantes. O **MySQL** será empregado como a ferramenta principal para armazenamento, manipulação e consulta dos dados. A análise abrangerá aspectos epidemiológicos, como casos confirmados, novos casos, percentual e média de mortes por região, bem como outras métricas relevantes. 
  Os dados utilizados neste projeto estão disponíveis publicamente neste [link](https://ourworldindata.org/covid-deaths).
