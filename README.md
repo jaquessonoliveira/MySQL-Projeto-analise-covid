@@ -27,7 +27,7 @@
 
 #  2\. **Criando o Schema e as tabelas no MySQL**
 
-## **Criando o Schema dbcovid:**
+### **2.1. Criando o Schema dbcovid:**
 
 Um schema é uma estrutura lógica que organiza e agrupa objetos relacionados, como tabelas, exibições, procedimentos armazenados, funções e outros elementos do banco de dados. Também é conhecido como banco de dados. Ao criar um novo banco de dados no MySQL, um schema é automaticamente criado com o mesmo nome do banco de dados, essa é a estrutura básica na qual pode-se criar e organizar as tabelas, exibições e outros objetos do banco de dados.
 
@@ -35,13 +35,13 @@ Um schema é uma estrutura lógica que organiza e agrupa objetos relacionados, c
 
 ---
 
-### **Criando a Tabela 1 (covid_mortes):**
+### **2.2. Criando a Tabela 1 (covid_mortes):**
 
 ![tabela1](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/02%20-%20Criando%20a%20tabela%20covid_mortes.png?raw=true)
 
 ---
 
-### **Criando a Tabela 2 (covid_vacinacao):**
+### **2.3. Criando a Tabela 2 (covid_vacinacao):**
 
 ![tabela2](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/03%20-%20Criando%20a%20tabela%20covid_vacina%C3%A7%C3%A3o.png?raw=true)
 
@@ -55,13 +55,13 @@ Um schema é uma estrutura lógica que organiza e agrupa objetos relacionados, c
 
 Quando queremos visualizar todas as colunas de uma tabela, basta usar o asterisco (*) antes do **FROM**, assim todas as colunas existentes na tabela serão exibidas. Para retornar uma ou mais colunas específicas, basta escrever o nome da coluna no lugar do asterisco, adicionando uma virgula (,) após o nome da coluna caso tenha mais de uma, como veremos em exemplos mais a frente.
 
-### **Visualizando os dados da tabela covid_mortes:**
+### **3.1. Visualizando os dados da tabela covid_mortes:**
 
 ![covid_mortes](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/04%20-%20Visualizando%20os%20dados%20covid_mortes.png?raw=true)
 
 ---
 
-### **Visualizando os dados da tabela covid_vacinacao:**
+### **3.2. Visualizando os dados da tabela covid_vacinacao:**
 
 ![covid_vacinacao](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/05%20-%20Visualizando%20os%20dados%20covid_vacina%C3%A7%C3%A3o.png?raw=true)
 
@@ -70,7 +70,7 @@ Quando queremos visualizar todas as colunas de uma tabela, basta usar o asterisc
 
   ---
 
-### **Convertendo a coluna **date** para o formato de data com o comando str_to_date():**
+### **3.3. Convertendo a coluna **date** para o formato de data com o comando str_to_date():**
 
  Através de uma instrução DML (Data Manipulation Linguage) a coluna "date" será convertida do formato "text" para o formato de data. O comando str_to_date converte a coluna para  formato de data, retornando o formato estipulado dentro dos parenteses, a documentação de referência pode ser acessada clicando neste [link](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html).
 
@@ -87,13 +87,13 @@ Comando para bloquear novamente o SAFE UPDATE:
 
 ---
 
-### **Selecionando as colunas mais relevantes da tabela covid_mortes para a análise:**
+### **3.4. Selecionando as colunas mais relevantes da tabela covid_mortes para a análise:**
 
 ![colunas_relevantes](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/07%20-%20Selecionando%20colunas%20relevantes%20para%20a%20an%C3%A1lise%20dos%20dados.png?raw=true)
 
 ---
 
-### **Análise Univariada:**
+### **3.5. Análise Univariada:**
 
  Uma análise univariada examina e analisa uma única variável em um conjunto de dados, geralmente, essa análise é realizada para entender a distribuição, as estatísticas descritivas e as tendências dessa variável específica. Algumas das principais operações que podem ser em uma análise univariada no MySQL São: 
 - Contagem de registros: COUNT();
@@ -108,7 +108,7 @@ A função **ROUND()** arredonda um valor numérico para um número específico 
 
 ---
 
-### **Análise Multivariada:**
+### **3.6. Análise Multivariada:**
 
  Uma Análise multivariada examina e analisa a relação entre duas ou mais variáveis em um conjunto de dados. Diferentemente da análise univariada, que foca em uma única variável, a análise multivariada permite explorar as interações, associações e correlações entre múltiplas variáveis. Existem várias técnicas e operações disponíveis para realizar análises multivariadas. Algumas das principais são: 
 - Matriz de correlação;
@@ -123,7 +123,7 @@ Na query abaixo foi feita uma divisão direta entre as colunas **total_deaths** 
 
 ---
 
-### **Proporção média entre o total de casos e a população de cada localidade:**
+### **3.7. Proporção média entre o total de casos e a população de cada localidade:**
 
 Na query abaixo foi calculado a média entre o total de casos e a população, dividindo a coluna **total_cases** pela coluna **population**, e multiplicado o resultado por 100 para encontrar a proporção média entre o total de casos e a população. O resultado foi agrupado pela localidade, encontrando o percentual médio de casos de cada país.
 
@@ -131,7 +131,7 @@ Na query abaixo foi calculado a média entre o total de casos e a população, d
 
 ---
 
-### **Países com a maior taxa de infecção em relação a população:**
+### **3.8. Países com a maior taxa de infecção em relação a população:**
 
 Na query abaixo foi utilizada a função **MAX()** na coluna **total_cases** que retorna o valor máximo do total de casos de infectados, e para achar o percentual máximo do total de casos pelo total da polulação de cada país, foi utilizada a função **MAX()** na divisão das colunas **total_cases** e **population**, multiplicando o resultado por 100. Também foi utilizado um filtro com a cláusula **WHERE** e **IS NOT NULL** para eliminar as linhas com valor nulo na coluna **continent**. O resultado foi agrupado pelas colunas **location** e **population** em ordem decrescente.
 
@@ -139,7 +139,7 @@ Na query abaixo foi utilizada a função **MAX()** na coluna **total_cases** que
 
 ---
 
-### **Países com a maior número de mortes:**
+### **3.9. Países com a maior número de mortes:**
 
 Na query abaixo foi utilizada a função **MAX()** na coluna **total_deaths** para retornar o maior número de mortes, utilizando a cláusula **WHERE** e **IS NOT NULL** como na query acima, e agrupando pela coluna **location** para retornar o maior número de mortes de cada país. 
 
@@ -149,7 +149,7 @@ Note que nessa agregação em especifico foi necessário utilizar a cláusula **
 
 ---
 
-### **Qual o percentual de mortes por dia:**
+### **3.10. Qual o percentual de mortes por dia:**
 
 Na query abaixo foi utilizada a função **SUM()** na coluna **new_cases** para somar o número de novos casos de covid a cada dia, e retornar a soma de novos casos. Na coluna **total_deaths** foram feitos dois cálculos, uma soma para retornar o total de mortos, e a soma da coluna **new_deaths** dividida pela soma da coluna **new_cases**, e o resultado foi multiplicado por 100 para encontrar o percentual de mortes por dia. Nessa coluna foi utilizada a cláusula **COALESCE()**, que verifica os valores de uma coluna, e caso ela encontre um valor **NULL**, substitui pelo valor especificado entre parenteses, nesse caso 'NA', uma maneira eficiente de tratar valores nulos.
 
@@ -157,7 +157,7 @@ Na query abaixo foi utilizada a função **SUM()** na coluna **new_cases** para 
 
 ---
 
-### **Número de novos vacinados, e média móvel de novos vacinados ao longo do tempo por localidade:**
+### **3.11. Número de novos vacinados, e média móvel de novos vacinados ao longo do tempo por localidade:**
 
 Na query abaixo, além da função **AVG()** utilizada na coluna **new_vaccinations** para encontrar a média de novos vacinados, foi utilizado a cláusula **OVER()**, particionando os dados pela localização, e ordenado pela data, para retornar a média móvel, ou seja, ao longo do tempo. 
 
@@ -176,7 +176,7 @@ Nessa query a expressão foi utilizada para verificar o resultado de cada linha 
 
 ---
 
-### **Criando uma tabela temporária com a cláusula **WITH** usando Common Table Expressions (CTE):**
+### **3.12. Criando uma tabela temporária com a cláusula **WITH** usando Common Table Expressions (CTE):**
 
 Na query abaixo, criada para encontrar o percentual da população com pelo menos 1 dose da vacina ao longo do tempo, foi feito uma operação matemática, atribuindo um apelido (TotalNovosVacinados) para encontrar o total de novos vacinados ao longo do tempo, porém, ela não pode ser usada como uma coluna ao realizar uma nova operação matemática, pois é um apelido atribuido a uma operação ao longo do tempo, e não uma coluna nativa da tabela. 
 
@@ -186,7 +186,7 @@ Para resolver esse problema, usamos o CTE (Common Table Expressions) com a cláu
 
 ---
 
-### **Salvando ou substituindo uma query dentro do Banco de Dados:**
+### **3.13. Salvando ou substituindo uma query dentro do Banco de Dados:**
 
 Uma forma de armazenar a query dentro do próprio banco de dados para facilitar a manutenção do código, e a apresentação do resultado final, é criando uma view dentro do próprio banco de dados, e que pode também ser substituida posteriormente com a cláusula **CREATE OR REPLACE VIEW**. Uma **VIEW** é uma representação virtual de uma tabela composta por uma consulta SQL. Ela permite que você defina uma consulta complexa como uma exibição nomeada, que pode ser referenciada posteriormente em outras consultas, como se fosse uma tabela real.
 
@@ -194,13 +194,13 @@ Uma forma de armazenar a query dentro do próprio banco de dados para facilitar 
 
 ---
 
-### **Apresentando os dados através da view:**
+### **3.14. Apresentando os dados através da view:**
 
 ![retornandoview](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/17%20-%20Visualizando%20os%20dados%20atrav%C3%A9s%20da%20view.png?raw=true)
 
 ---
 
-### **Adicionando filtro em uma view:**
+### **3.15. Adicionando filtro em uma view:**
 
 Também é possível adicionar filtros em uma view com a cláusula **WHERE**, isso permite restringir os dados retornados pela exibição com base em determinadas condições.
 
@@ -212,7 +212,7 @@ Na query abaixo foi adicionado um filtro para retornar somente os percentuais co
 
 #  4\. **Conclusão**
 
-Com a análise exploratória dos dados do Covid-19 foi possível extrair alguns insights:
+Com a análise exploratória dos dados do Covid-19 foi possível extrair os seguintes insights:
 
 - Média de mortos por país,
 - Proporção de mortes em relação ao total de casos no Brasil;
