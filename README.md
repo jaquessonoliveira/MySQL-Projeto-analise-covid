@@ -14,7 +14,7 @@
   <li>Dados;</li>
   <li>Criando o Schema e as tabelas no MySQL;</li>
   <li>Explorando os dados;</li>
-  <li>...;</li>
+  <li>Conclusão.</li>
   <li>....</li>
 </ol>
 
@@ -208,5 +208,22 @@ Também é possível adicionar filtros em uma view com a cláusula **WHERE**, is
 Na query abaixo foi adicionado um filtro para retornar somente os percentuais com valor acima dos 20%. 
 
 ![filtroview](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/18%20-%20Criando%20um%20filtro%20dentro%20da%20View.png?raw=true)
+
+---
+
+#  4\. **Conclusão**
+
+Com a análise exploratória dos dados do Covid-19 foi possível extrair alguns insights:
+
+- Média de mortos por país,
+- Proporção de mortes em relação ao total de casos no Brasil;
+- Proporção média entre o total de casos e a população de cada localidade;
+- Países com a maior taxa de infecção em relação à população (considerando o maior valor do total de casos);
+- Países com o maior número de mortes;
+- Percentual de mortes por dia;
+- Número de novos vacinados;
+- Média móvel de novos vacinados ao longo do tempo por localidade;
+- Número de novos vacinados e o total de novos vacinados ao longo do tempo por continente;
+- Percentual da população com pelo menos 1 dose da vacina ao longo do tempo em Maio de 2021.
 
 ---
