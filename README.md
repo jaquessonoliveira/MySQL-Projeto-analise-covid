@@ -143,7 +143,7 @@ Na query abaixo foi utilizada a função **MAX()** na coluna **total_cases** que
 
 Na query abaixo foi utilizada a função **MAX()** na coluna **total_deaths** para retornar o maior número de mortes, utilizando a cláusula **WHERE** e **IS NOT NULL** como na query acima, e agrupando pela coluna **location** para retornar o maior número de mortes de cada país. 
 
-Note que nessa agregação em especifico foi necessário utilizar a cláusula **CAST(nome_coluna AS UNSIGNED)**, isso porque quando a tabela foi criada, todas as colunas foram geradas como tipo **text**, e para realizar uma operação matemática foi necessário a conversão da coluna para um valor inteiro. Por padrão no SGBD MySQL, não é possível converter a coluna para o tipo **INT** utilizando essa cláusula, somente para o tipo UNSIGNED, que é basicamente o tipo **INT** sem sinal.
+Note que nessa agregação em específico foi necessário utilizar a cláusula **CAST(nome_coluna AS UNSIGNED)**, isso porque quando a tabela foi criada, todas as colunas foram geradas como tipo **text**, e para realizar uma operação matemática foi necessário a conversão da coluna para um valor inteiro. Por padrão no SGBD MySQL, não é possível converter a coluna para o tipo **INT** utilizando essa cláusula, somente para o tipo UNSIGNED, que é basicamente o tipo **INT** sem sinal.
 
 ![maiornummortos](https://github.com/jaquessonoliveira/MySQL-Projeto-analise-covid/blob/main/Arquivos/12%20-.png?raw=true)
 
